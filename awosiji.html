@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victor Awosiji</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text: #141210;
+    --text-secondary: #6b6560;
+    --accent: #a0522d;
+    --accent-hover: #7a3d1e;
+    --bg: #fdfcfa;
+    --border: #e8e4de;
+    --tag-bg: #f3efe9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: rgba(160, 82, 45, 0.15); }
+
+  .container {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 72px 24px 100px;
+    animation: rise 0.55s ease-out;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Header ── */
+  .site-header { margin-bottom: 44px; }
+
+  .site-header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .site-header h1 a { color: var(--text); text-decoration: none; }
+
+  nav {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  nav a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--text); }
+
+  /* ── Bio ── */
+  .bio {
+    font-size: 17.5px;
+    line-height: 1.78;
+    margin-bottom: 52px;
+  }
+
+  .bio a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .bio a:hover { border-bottom-color: var(--accent); }
+
+  .bio-more { display: none; }
+  .bio-more.open { display: inline; }
+
+  .bio-toggle {
+    color: var(--accent);
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    border-bottom: 1px dashed var(--accent);
+  }
+
+  .bio-toggle:hover { border-bottom-style: solid; }
+
+  /* ── Sections ── */
+  section { margin-bottom: 44px; }
+
+  section h2 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Entry lists ── */
+  .entry-list { list-style: none; }
+  .entry-list li { margin-bottom: 12px; }
+
+  .entry-list a {
+    font-size: 16.5px;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .entry-list a:hover { color: var(--accent); }
+
+  .entry-meta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .entry-venue {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 1px;
+  }
+
+  .pub-authors {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 1px;
+  }
+
+  .pub-journal {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--tag-bg);
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: 4px;
+    vertical-align: 2px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  footer {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 56px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  footer a:hover { color: var(--text); border-color: var(--text); }
+
+  .footer-sep { color: var(--border); }
+
+  @media (max-width: 480px) {
+    .container { padding: 44px 20px 72px; }
+    .site-header h1 { font-size: 23px; }
+    .bio { font-size: 16.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="site-header">
+    <h1><a href="#">Victor Awosiji</a></h1>
+    <nav>
+      <a href="#writing">Writing</a>
+      <a href="#talks">Talks</a>
+      <a href="#research">Research</a>
+      <a href="#media">Media</a>
+    </nav>
+  </header>
+
+  <div class="bio">
+    Victor Awosiji is a PhD researcher in <a href="https://earth.stanford.edu/">Earth &amp; Planetary Sciences</a> at Stanford, where he works on AI-driven exploration for natural hydrogen. He developed the <a href="https://doi.org/10.1016/j.ijhydene.2025.150492">Blind Hydrogen System</a>, a first-principles framework for finding hydrogen underground without surface clues.
+    <button class="bio-toggle" onclick="toggleBio()" id="bioToggle">More</button>
+    <span class="bio-more" id="bioMore">
+      <br><br>His work sits at the intersection of deep learning, geophysics, and energy—building transformer architectures that fuse gravity, magnetic, and well-log data to predict where geological hydrogen sits beneath the Earth's surface. He convened the Natural Hydrogen session at AGU 2024 and has been invited to speak at conferences across the US and internationally.
+      <br><br>Previously, he developed hydrogen exploration methodologies at California Resources Corporation and Aramco Americas that were adopted across their operations in the US and Saudi Arabia. He holds an M.Sc. with Distinction and a B.Sc. with First-Class Honors, both in geological sciences.
+      <br><br>He thinks about energy at civilization scale, the role of AI in the physical world, and what it means to build things that matter.
+    </span>
+  </div>
+
+  <!-- ═══════ WRITING ═══════ -->
+  <section id="writing">
+    <h2>Essays</h2>
+    <ul class="entry-list">
+      <li><a href="#">Why Natural Hydrogen Could Reshape the Energy Landscape</a></li>
+      <li><a href="#">On Building AI for the Physical World</a></li>
+      <li><a href="#">Energy, Poverty, and the Case for Abundance</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Quick takes</h2>
+    <ul class="entry-list">
+      <li><a href="#">What Most People Get Wrong About Geologic Hydrogen</a></li>
+      <li><a href="#">Notes from the Field: Sampling the San Andreas Fault</a></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════ TALKS ═══════ -->
+  <section id="talks">
+    <h2>Invited talks &amp; panels</h2>
+    <ul class="entry-list">
+      <li>
+        <a href="#">Natural Hydrogen as a Critical Resource</a>
+        <span class="entry-venue">Invited lecture — Montana State University, Economic Geology Speaker Series, Nov 2025</span>
+      </li>
+      <li>
+        <a href="#">Geological and Geophysical Evaluation of Natural Hydrogen</a>
+        <span class="entry-venue">Invited talk — Drilling for Hydrogen Conference, Sep 2025</span>
+      </li>
+      <li>
+        <a href="#">The Role of Geological Hydrogen in the Energy Transition</a>
+        <span class="entry-venue">Panelist — Drilling for Hydrogen Conference, Sep 2025</span>
+      </li>
+      <li>
+        <a href="#">Understanding Geologic Hydrogen Production from First Principles</a>
+        <span class="entry-venue">Invited talk — California Hydrogen Convention, Mar 2025</span>
+      </li>
+      <li>
+        <a href="#">Unlocking Natural Hydrogen's Potential: A Game-Changer for the Energy Industry?</a>
+        <span class="entry-venue">Invited talk — NAPE North America Chapter, Feb 2025</span>
+      </li>
+      <li>
+        <a href="#">The Concept of Blind Hydrogen Systems</a> <span class="tag">Oral</span>
+        <span class="entry-venue">AGU Fall Meeting, Washington DC, Dec 2024 — 1 of 9 selected</span>
+      </li>
+      <li>
+        <a href="#">Bettering Human Lives: Energy, Climate &amp; Poverty</a>
+        <span class="entry-venue">Panelist alongside Chris Wright (now U.S. Secretary of Energy) — Energy Dialogues, Nov 2023</span>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════ RESEARCH ═══════ -->
+  <section id="research">
+    <h2>Publications</h2>
+    <ul class="entry-list">
+      <li>
+        <a href="https://doi.org/10.1016/j.ijhydene.2025.150492">The Concept of a Blind Hydrogen System</a>
+        <span class="pub-authors"><b>Awosiji, V.</b>, Graham, S., Mukerji, T.</span>
+        <span class="pub-journal">International Journal of Hydrogen Energy, 158, 2025</span>
+      </li>
+      <li>
+        <a href="https://doi.org/10.1016/j.ijhydene.2023.09.032">Soil Geochemistry of Hydrogen and Other Gases Along the San Andreas Fault</a>
+        <span class="pub-authors">Mathur, Y., <b>Awosiji, V.</b>, Mukerji, T., Hosford Scheirer, A., Peters, K. E.</span>
+        <span class="pub-journal">International Journal of Hydrogen Energy, 50(B), 2024</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Research links</h2>
+    <ul class="entry-list">
+      <li><a href="https://scholar.google.com/citations?user=bFKsRmcAAAAJ&hl=en">Google Scholar</a></li>
+      <li><a href="https://profiles.stanford.edu/victor-awosiji">Stanford Profile</a></li>
+      <li><a href="https://scerf.stanford.edu/people/victor-awosiji">SCERF Profile</a></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══════ MEDIA ═══════ -->
+  <section id="media">
+    <h2>Media &amp; recognition</h2>
+    <ul class="entry-list">
+      <li>
+        <a href="https://www.newscientist.com/article/2460755-are-vast-amounts-of-hydrogen-fuel-hidden-below-earths-surface/">"Are vast amounts of hydrogen fuel hidden below Earth's surface?"</a>
+        <span class="entry-venue">Expert commentary — New Scientist, 2024</span>
+      </li>
+      <li>
+        <a href="https://jrbp.stanford.edu/geologic-hydrogen-western-california">Geologic Hydrogen in Western California</a>
+        <span class="entry-venue">Featured research — Jasper Ridge Biological Preserve, Stanford</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══════ INDUSTRY ═══════ -->
+  <section>
+    <h2>Industry</h2>
+    <ul class="entry-list">
+      <li>
+        <span style="font-size:16.5px;">California Resources Corporation</span>
+        <span class="entry-venue">Geoscientist &amp; Hydrogen Expert, Dec 2024 – Oct 2025</span>
+      </li>
+      <li>
+        <span style="font-size:16.5px;">Aramco Americas</span>
+        <span class="entry-venue">Geoscience Innovation Intern, Summer 2023 — Pioneered hydrogen exploration techniques adopted across US &amp; Saudi operations</span>
+      </li>
+      <li>
+        <span style="font-size:16.5px;">TotalEnergies</span>
+        <span class="entry-venue">Geoscience Intern, 2018–2019</span>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <footer>
+    <a href="https://www.linkedin.com/in/victorawosiji">LinkedIn</a>
+    <span class="footer-sep">·</span>
+    <a href="https://github.com/awosiji">GitHub</a>
+    <span class="footer-sep">·</span>
+    <a href="https://scholar.google.com/citations?user=bFKsRmcAAAAJ&hl=en">Scholar</a>
+    <span class="footer-sep">·</span>
+    <a href="#">X</a>
+    <span class="footer-sep">·</span>
+    <a href="/cdn-cgi/l/email-protection#681e091f071b010201281b1c09060e071a0c460d0c1d">Email</a>
+  </footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleBio() {
+  const more = document.getElementById('bioMore');
+  const btn = document
